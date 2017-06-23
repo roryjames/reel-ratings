@@ -1,0 +1,145 @@
+<!--//Project 1 - G.C. Lou-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Blisters</title>
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <nav class="navbar navbar-default" ">
+    <div class="container">
+      <div class="navbar-header" >
+      <span id="logo-display"><img src="assets/media/road_runner.png" class="fifty"/></span>
+        <span class="ID">Blisters</span>
+      </div>
+      <div >
+        <ul class="nav navbar-nav navbar-right navbar-collapse right-five">
+          <li><button id="feedback-btn" onclick="show('feedback')">Feedback</button></li>
+          <li><button id="about-btn">About</button></li>
+          <li><button id="contact-btn">Contact</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- this modal is linked up -->
+<div id="feedback" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4>Feedback Form</h4>
+     <!-- <div class="form"> -->
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Name</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="name" ></div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">City</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="city" ></div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">State</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="state" ></div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Comments</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="comments" ></div>
+          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Rating</div>
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <input type="radio" id="r1" name="rating" value="1" class="" > 1
+          <input type="radio" id="r2" name="rating" value="2" class="" > 2
+          <input type="radio" id="r3" name="rating" value="3" class="" > 3
+          <input type="radio" id="r4" name="rating" value="4" class="" > 4
+          <input type="radio" id="r5" name="rating" value="5" class="" > 5</div>
+          <button id="input" value="DONE" class="btn">Submit</button>
+        </div>
+      <!-- </div> -->
+    </div>
+</div>
+
+
+<!-- this modal is not linked up yet, can delete -->
+<div id="about" class="modal">
+  <!-- about us modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <h4>About Us</h4><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim, felis ut dictum tristique, nibh erat feugiat libero, sit amet fringilla mauris velit in mi. Duis tempus felis vitae felis vulputate pretium. Nullam commodo, est ac auctor ornare,
+      eros nisi fringilla sem, non pulvinar tortor lorem sit amet sem. Aenean quis erat facilisis, porttitor ex cursus, luctus enim. Curabitur et metus in lacus tristique sagittis et in lorem. Nunc id nisi et neque fringilla ultricies.</p>
+  </div>
+</div>
+
+<!--display content> from Google? -->
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h1>Your Location</h1>
+      <img src="assets/media/chicago_map.png" class="ninety" >
+      <h4>Chicago</h4>
+      <p>Latitude:<br>Longitude:</p>
+    </div>
+<!--API info goes here? -->
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="trail-display">
+      <h1>Popular Trails</h1>
+      <p>
+      <ul>
+      <li><a href="">Lake View</a></li>
+      <li><a href="">Forest Hill</a></li>
+      </ul>
+      </p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h1>Plants and Animals</h1>
+      <p>
+      <ul>
+      <li>Birds:</li>
+      <li>Mammals:
+        <ul>
+        <li>Cats</li>
+        <li>Dogs</li>
+        </ul>
+      </li>
+      </ul>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!--firebase data goes here - to format with bootstrap table-->
+<div id="feedback-form-report">
+    <div id="name-display"></div>
+    <div id="city-display"></div>
+    <div id="state-display"></div>
+    <div id="comments-display"></div>
+    <div id="rating-display"></div>
+</div>
+
+<!--wrap-->
+</div>
+
+
+<!--stickey footer begins-->
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<footer class="sticky-footer">&copy; Copyright Team A Walk in the Park</footer>
+    </div>
+</div>
+<!--footer ends-->
+
+<script>
+//any UI interaction goes here
+</script>
+
+</body>
+<script type="text/javascript" src="assets/js/walk.js"></script>
+
+</html>
