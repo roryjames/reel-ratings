@@ -1,17 +1,18 @@
-  src="http://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
+      // This .on("click") function will trigger the AJAX Call
+      $("#find-movie").on("click", function(event) {
 
-  		// Asynchronous JavaScript and XML
-		$.ajax('http://www.omdbapi.com/?apikey=40e9cece&t=Parent+Trap&y=1998')
-		.done(function (data) {
-			if (data.Response === 'False'){
-				alert('movie doesn\'t exist');
-			}
-			else{
-			$('#movieTitle').html(data.Title);
-			$('#moviePlot').html(data.Plot);
-			$('#movieYear').html(data.Year);
-			$('#movieActors').html(data.Actors);
-			}
-		});
+        // event.preventDefault() can be used to prevent an event's default behavior.
+        // Here, it prevents the submit button from trying to submit a form when clicked
+        event.preventDefault();
+        // Here we grab the text from the input box
+        var movie = $("#title-input").val();
+        // Here we construct our url
+        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).done(function(response) {
+          $("#movie-view").text(JSON.stringify(response));
+        });
+
+      });
