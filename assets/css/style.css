@@ -12,15 +12,21 @@ body{
  	font-size:16px; 
  	font-family:sans-serif;
   line-height: 140%;
- 	margin: 50px;
+ 	margin: 0px;
   height:100%;
  }
 
 h1{
   font-size:140%;
-  color: green;
+  color: #333;
   font-weight: bold;
   margin-bottom:10px;
+}
+h2{
+  font-size:120%;
+  color: blue;
+  font-weight: bold;
+  margin:3px;
 }
 
 h4{
@@ -35,12 +41,12 @@ ul {
     margin-left:20px;
 }
 
-a {color:blue; text-decoration: underline;}
-a:hover {color:red; background-color: yellow;}
+a {color:blue;}
+a:hover {color:red;}
 a:visited {color:purple;}
 a:active {color:blue;}
 
-.btn{
+/*.btn{
   	font-size:16px; 
   	background-color: green; 
   	color:white; 
@@ -53,8 +59,12 @@ a:active {color:blue;}
 .btn:hover{
   background-color: yellow !important; 
   border:1px green solid;
-}
+}*/
 
+.fb-btn{
+  position: relative;
+  text-align: center;
+}
 .wrap {
   min-height: 100%;
   margin-bottom: 50px; 
@@ -78,7 +88,7 @@ font-size: 90%;
 padding:5px 5px 5px 5px;
 clear:both;
 color:#333;
-background-color: #ccc;
+background-color: #ededed;
 text-align: center;
 border-top: 3px green solid;
 margin-top:10px;
@@ -97,6 +107,17 @@ bottom: 0;
     margin-right:2%; 
 }
 
+.right_top_ten{
+  float:right;
+  margin-top:10px;
+}
+.right_top_ten a:hover{
+  background-color: yellow;
+}
+
+.center{
+  text-align: center;
+}
 .left{
     float:left; 
     margin:10px; 
@@ -110,20 +131,12 @@ bottom: 0;
   display:none;
 }
 
-.ID{
-  position:absolute;
-  font-size:44px;
-  font-weight: bold;
-  letter-spacing: 4px;
-  padding-left: 50px;
-  margin:auto;
-  color: red;
-}
+
 
 /*modal bg */
 .modal {
     position: fixed; 
-    z-index: 1; 
+    z-index: 5; 
     left: 0;
     top: 0;
     width: 80%; 
@@ -134,6 +147,7 @@ bottom: 0;
 }
 /*modal Content */
 .modal-content {
+  z-index: 2;
     background-color: #fefefe;
     margin: 15% auto; 
     padding: 20px;
