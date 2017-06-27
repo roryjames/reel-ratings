@@ -1,4 +1,4 @@
-# awalkinthepark
+# Reel Ratings
 Group Project One Northwestern Boot Camp
 
 first upload by Chooi jun 22- index and temp asset files 
