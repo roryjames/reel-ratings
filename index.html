@@ -27,12 +27,12 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header" >
-      <span id="logo-display"><img src="assets/media/logo_308_121.png"></span>
+      <span id="logo-display"><img src="assets/media/logo_308_121.png" class="fifty"></span>
         <span id="tagline-display"></span>
       </div>
       <div class="dropdown right_top_ten">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <span class="glyphicon glyphicon-menu-hamburger btn-lg" aria-hidden="true" style="font-size:30px;color:#0041C2;">
+    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="font-size:30px;color:#0041C2;">
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -45,16 +45,6 @@
     <li><a href="#">Contact Us</a></li>
   </ul>
 </div>
-
-<!-- Alternative menu with icons - for options-->
-<div id="alt_menu">
-        <ul class="nav navbar-nav navbar-right navbar-collapse right-five">
-          <li><button type="button" class="btn btn-default btn-lg" id="feedback-btn" onclick="show('feedback')"><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> Feedback</button></li>
-          <li><span class="glyphicon glyphicon-inbox btn-lg" id="feedback-btn" onclick="show('feedback')" aria-hidden="true" style="cursor:pointer;"></span></li>
-          <li><span class="glyphicon glyphicon-search btn-lg" aria-hidden="true"></span></li>
-        </ul>
-      </div>
-    </div>
   </nav>
 
 <!-- this modal is linked up : can move to js file as html -->
@@ -97,54 +87,70 @@
   <div class="container">
   <div class="row">
 
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id=" ">
-      <h1>Place holder only: e.g. popular trails</h1>
-      <p>
-      <ul>
-      <li><a href="">Lake View</a></li>
-      <li><a href="">Forest Hill</a></li>
+<!--display movies"-->
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="movies">
+      <h1>Movies</h1>
+      <div class="">
+      <ul style="list-style:none;">
+      <li><img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg"> </li>
       </ul>
-      </p>
+      </div>
     </div>
 
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h1>Your Location</h1>
-      <div class="input-group add-on">
-      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
-      <div class="input-group-btn">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <h1>Search</h1>
+    <div class="input-group add-on h2">
+      <input class="form-control" placeholder="Title" name="" id="title" type="text">
+      <div class="input-group-btn h2">
+      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
+    </div>
+
+<div class="row">
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id=" ">
+    <div class="input-group add-on h2">
+      <input class="form-control" placeholder="Year" name="" id="year" type="text">
+      <div class="input-group-btn h2">
+      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
+    </div>
+    </div>
+
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id=" ">
+    <div class="input-group add-on h2">
+      <input class="form-control" placeholder="Genre" name="" id="genre" type="text">
+      <div class="input-group-btn h2">
       <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
       </div>
-      <div id="map"><h4>Div for map here</h4></div> 
-      <img src="assets/media/chicago_map.png" class="ninety" >
-      <h4>Chicago</h4>
-      <p>Latitude:<br>Longitude:</p>
     </div>
+</div>
+
+
+   <div class="input-group add-on h2">
+      <input class="form-control" placeholder="Director" name="" id="director" type="text">
+      <div class="input-group-btn h2">
+      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
+      </div>
+    <div class="input-group add-on h2">
+      <input class="form-control" placeholder="Actor" name="" id="actor" type="text">
+      <div class="input-group-btn h2">
+      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
+      </div>
     
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id=" ">
-      <h1>Place holder only: e.g. plants, animals</h1>
-      <p>
-      <ul>
-      <li>Birds:</li>
-      <li>Mammals:
-        <ul>
-        <li>Cats</li>
-        <li>Dogs</li>
-        </ul>
-      </li>
-      </ul>
-      </p>
+    <div class="center" style="margin:10px;"><input type="button" value="Submit" id="submit" class=""></input></div>
+  </div>
+
+    <!--display stars with js-->
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="stars">
+      <h1>Ratings</h1>
+      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
+      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
+      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
+      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
+      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
     </div>
   </div>
 </div>
 
-<!--firebase data goes here - to format with bootstrap table-->
-<div id="feedback-form-report">
-    <div id="name-display"></div>
-    <div id="city-display"></div>
-    <div id="state-display"></div>
-    <div id="comments-display"></div>
-    <div id="rating-display"></div>
-</div>
+
 
 <!--wrap-->
 </div>
@@ -158,7 +164,7 @@
 <!--footer ends-->
 
 <script>
-//any UI interaction goes here
+
 </script>
 
 </body>
