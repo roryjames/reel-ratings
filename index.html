@@ -1,175 +1,38 @@
-<!--//Project 1 - G.C. Lou-->
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Blisters</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-    
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/assets/js/mapsAPI.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>giphy api</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="test.css">
 </head>
 
 <body>
-
-<div class="wrap">
-<!--changed css body margin to 0 to have header stretched across end-to-end-->
-  <nav class="navbar navbar-default">
     <div class="container">
-      <div class="navbar-header" >
-      <span id="logo-display"><img src="assets/media/logo_308_121.png" class="fifty"></span>
-        <span id="tagline-display"></span>
-      </div>
-      <div class="dropdown right_top_ten">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="font-size:30px;color:#0041C2;">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" onclick="show('feedback')">Feedback</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Search</li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">About Us</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
-</div>
-  </nav>
-
-<!-- this modal is linked up : can move to js file as html -->
-<div id="feedback" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h4 class="center"><strong>Feedback Form</strong></h4>
-        <div class="row">
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Name</div>
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="name" ></div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">City</div>
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="city" ></div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">State</div>
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><input type="text" id="state" ></div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Comments</div>
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><textarea id="comments" rows="4" cols="50"></textarea></div>
-          <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Rating</div>
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-          <input type="radio" id="r1" name="rating" value="1" class="" > 1
-          <input type="radio" id="r2" name="rating" value="2" class="" > 2
-          <input type="radio" id="r3" name="rating" value="3" class="" > 3
-          <input type="radio" id="r4" name="rating" value="4" class="" > 4
-          <input type="radio" id="r5" name="rating" value="5" class="" > 5
-          </div>
-          <button id="input" value="submit" class="fb-btn">Submit</button>
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-xs-12">
+                <div class="jumbotron">
+                    <h1>movie test</h1>
+                    <p>TEST</p>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="titleSearch" placeholder="movie by title">
+                            <input type="text" class="form-control" id="yearSearch" placeholder="movie by year">
+                            <button type="submit" class="btn btn-default" id="addShow">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="moviesHere" class="row movieContainer"></div>
+                <ul id="pagination"></ul>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- this modal is not linked up yet, can delete or move to js file -->
-<div id="about" class="modal">
-  <!-- about us modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-      <h4>About Us</h4><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim, felis ut dictum tristique, nibh erat feugiat libero, sit amet fringilla mauris velit in mi. Duis tempus felis vitae felis vulputate pretium. Nullam commodo, est ac auctor ornare.</p>
-  </div>
-</div>
-
-<!--display content> from API?-->
-  <div class="container">
-  <div class="row">
-
-<!--display movies"-->
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="movies">
-      <h1>Movies</h1>
-      <div class="">
-      <ul style="list-style:none;">
-      <li><img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg"> </li>
-
-      </ul>
-      </div>
-    </div>
-
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <h1>Search</h1>
-    <div class="input-group add-on h2">
-      <input class="form-control" placeholder="Title" name="" id="title" type="text">
-      <div class="input-group-btn h2">
-      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
-    </div>
-
-<div class="row">
-<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id=" ">
-    <div class="input-group add-on h2">
-      <input class="form-control" placeholder="Year" name="" id="year" type="text">
-      <div class="input-group-btn h2">
-      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
-    </div>
-    </div>
-
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id=" ">
-    <div class="input-group add-on h2">
-      <input class="form-control" placeholder="Genre" name="" id="genre" type="text">
-      <div class="input-group-btn h2">
-      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
-      </div>
-    </div>
-</div>
-
-
-   <div class="input-group add-on h2">
-      <input class="form-control" placeholder="Director" name="" id="director" type="text">
-      <div class="input-group-btn h2">
-      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
-      </div>
-    <div class="input-group add-on h2">
-      <input class="form-control" placeholder="Actor" name="" id="actor" type="text">
-      <div class="input-group-btn h2">
-      <button class="btn btn-default right" type="submit"><i class="glyphicon glyphicon-search"></i></button></div>
-      </div>
-    
-    <div class="center" style="margin:10px;"><input type="button" value="Submit" id="submit" class=""></input></div>
-  </div>
-
-    <!--display stars with js-->
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="stars">
-      <h1>Ratings</h1>
-      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
-      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
-      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
-      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
-      <li class="glyphicon glyphicon-star" style="display:inline; color:gold;"> </li>
-    </div>
-  </div>
-</div>
-
-
-
-<!--wrap-->
-</div>
-
-<!--stickey footer begins: change css to go with header and color scheme-->
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<footer class="sticky-footer">&copy; Copyright Team A Walk in the Park</footer>
-    </div>
-</div>
-<!--footer ends-->
-
-<script>
-
-</script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jquery.twbsPagination.js"></script>
+    <script type="text/javascript" src="test.js"></script>
 </body>
-<script type="text/javascript" src="assets/js/walk.js"></script>
 
 </html>
