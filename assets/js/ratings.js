@@ -12,6 +12,7 @@
           method: "GET"
         }).done(function(response) {
           $("#moviesHere").text(JSON.stringify(response));
+
           imdbHundred = response.Ratings[0].Value;
           imdbNums = imdbHundred.split('/');
           imdbRatings = parseFloat(imdbNums[0]);
@@ -22,7 +23,7 @@
           metaNums = metaHundred.split('/');
           metaRatings = parseFloat(metaNums[0] / 10);
 
-          //convert rotten tomatoes percentage into out of 10
+          //rating results
           console.log(imdbRatings);
           console.log(rottenRatings);
           console.log(metaRatings);
