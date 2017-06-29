@@ -19,7 +19,6 @@
 
             var str = show; //lower case search term, replace spaces with dashes
             str = str.replace(/\s+/g, '-').toLowerCase();
-            console.log(str);
 
             $('#moviesHere').empty();
 
@@ -29,7 +28,7 @@
             for (var i = 0; i < results.length; i++) {
                 var movieBox = $('<div>');
                 movieBox.addClass('col-xs-12 col-md-6 movieBox');
-                movieBox.attr('data-name', results[i].title)
+                movieBox.attr('data-name',str)
 
                 var posterBox = $('<div>');
                 posterBox.addClass('col-xs-12 col-md-4');
