@@ -1,4 +1,4 @@
-$(document).ready(function() {
+    $(document).ready(function() {
     $('#addShow').on("click", function(e) { //event handler for submit button
         event.preventDefault(); //prevents refreshing
         var validate = Validate();
@@ -17,6 +17,10 @@ $(document).ready(function() {
         }).done(function(response) {
             console.log(response.results);
 
+            var str = show; //lower case search term, replace spaces with dashes
+            str = str.replace(/\s+/g, '-').toLowerCase();
+            console.log(str);
+
             $('#moviesHere').empty();
 
             var pages = response.total_pages;
@@ -24,7 +28,8 @@ $(document).ready(function() {
             
             for (var i = 0; i < results.length; i++) {
                 var movieBox = $('<div>');
-                movieBox.addClass('col-xs-12 col-md-6');
+                movieBox.addClass('col-xs-12 col-md-6 movieBox');
+                movieBox.attr('data-name', results[i].title)
 
                 var posterBox = $('<div>');
                 posterBox.addClass('col-xs-12 col-md-3');
