@@ -27,25 +27,26 @@ $(document).ready(function() {
                 movieBox.addClass('col-xs-12 col-md-6');
 
                 var posterBox = $('<div>');
-                posterBox.addClass('col-xs-12 col-md-3');
+                posterBox.addClass('col-xs-12 col-md-4');
 
                 var img = $('<img>');
+                img.addClass('img-responsive');
                 img.attr("src", "http://image.tmdb.org/t/p/w185//" + results[i].poster_path);
                 posterBox.append(img);
 
                 var infoBox = $('<div>');
-                infoBox.addClass('col-xs-12 col-md-6 infoBox');
+                infoBox.addClass('col-xs-12 col-md-8');
 
                 var information = $('<h5>').html("<tr> <td>" + results[i].title + " </td></tr> " + "<tr><td>" + results[i].overview + " </td></tr> ");
                 infoBox.append(information);
 
-                var reviewBox = $('<div>');
-                reviewBox.addClass('col-xs-12 col-md-3');
+                // var reviewBox = $('<div>');
+                // reviewBox.addClass('col-xs-12 col-md-3');
 
-                var reviews = $('<h5>').html("The Movie DB - " + results[i].vote_average);
-                reviewBox.append(reviews);
+                // var reviews = $('<h5>').html("The Movie DB - " + results[i].vote_average);
+                // reviewBox.append(reviews);
 
-                movieBox.append(posterBox, infoBox, reviewBox);
+                movieBox.append(posterBox, infoBox);
 
                 $('#moviesHere').append(movieBox);
 
