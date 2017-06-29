@@ -17,15 +17,16 @@
         }).done(function(response) {
             console.log(response.results);
 
-            var str = show; //lower case search term, replace spaces with dashes
-            str = str.replace(/\s+/g, '-').toLowerCase();
-
             $('#moviesHere').empty();
 
             var pages = response.total_pages;
             var results = response.results;
             
             for (var i = 0; i < results.length; i++) {
+
+                var str = results[i].title; //lower case search term, replace spaces with dashes
+                str = str.replace(/\s+/g, '-').toLowerCase();
+
                 var movieBox = $('<div>');
                 movieBox.addClass('col-xs-12 col-md-6 movieBox');
                 movieBox.attr('data-name',str)
