@@ -1,6 +1,5 @@
-      // This .on("click") function will trigger the AJAX Call
       $("#addShow").on("click", function(event) {
-
+      	var imdbRatings, rottenRatings, metaRatings;
         // event.preventDefault() can be used to prevent an event's default behavior.
         // Here, it prevents the submit button from trying to submit a form when clicked
         event.preventDefault();
@@ -13,10 +12,13 @@
           method: "GET"
         }).done(function(response) {
           $("#moviesHere").text(JSON.stringify(response));
+          imdbRatings = response.Ratings[0].Value;
+          rottenRatings = response.Ratings[1].Value;
+          metaRatings = response.Ratings[2].Value;
           console.log(response);
-          console.log("IMDB Rating: " + response.Ratings[0].Value);
-          console.log("Rotten Tomatoes Rating: " + response.Ratings[1].Value);
-          console.log("MetaCritic Rating: " + response.Ratings[2].Value);       
+          console.log("IMDB Rating: " + imdbRatings);
+          console.log("Rotten Tomatoes Rating: " + rottenRatings);
+          console.log("MetaCritic Rating: " + metaRatings);       
         });
 
       });
