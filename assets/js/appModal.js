@@ -62,7 +62,7 @@
              var reelRating = (reelRatingAdd / 3);
              console.log("Reel Rating is " + Math.round(reelRating * 10) / 10);
 
-             var ratings = $('<h5>').html("IMDb = " + imdbRatings + " Rotten Tomatoes = " + rottenRatings + " Metacritic = " + rottenRatings + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
+             var ratings = $('<h5>').html("IMDb = " + imdbRatings + " Rotten Tomatoes = " + rottenRatings + " Metacritic = " + metaRatings + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
 
              $("#modalBodyRatings").append(ratings);
 
