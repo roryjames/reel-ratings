@@ -1,5 +1,7 @@
  $(document).ready(function() {
 
+     var imdbRatings, rottenRatings, metaRatings;
+
      $('body').on("click", "img", function() {
          var dataId = $(this).attr("data-id");
          var queryURL = "https://api.themoviedb.org/3/movie/" + dataId + "?api_key=50c9867e013d532a54d305162ee29e35";
@@ -8,13 +10,12 @@
              url: queryURL,
              method: "GET"
          }).done(function(response) {
-             $("#modalTitleH4").html(response.original_title); //modal title
 
-             $("#modalBodyDiv").empty(); //clears existing data
+             $("#modalMovieDiv").empty();
 
-             var tagline = $('<h5>').html('"' + response.tagline + '"'); //movie tagline
+             var tagline = $('<h5>').html('"' + response.tagline + '"');
 
-             $("#modalBodyDiv").append(tagline);
+             $("#modalMovieDiv").append(tagline);
 
              $("#myModal").modal("show");
 
@@ -31,7 +32,17 @@
              method: "GET"
          }).done(function(response) {
 
+             $("#modalBodyDiv").empty();
              $("#modalBodyRatings").empty();
+
+             $("#modalTitleH4").html(response.Title + ' (' + response.Released + ')' );
+
+             var information = $('<h5>').html(response.Genre + '<br>' +
+                 response.Plot + '<hr>' +
+                 'Director: ' + response.Director + '<br>' +
+                 'Cast: ' + response.Actors);
+
+             $("#modalBodyDiv").append(information);
 
              imdbHundred = response.Ratings[0].Value;
              imdbNums = imdbHundred.split('/');
@@ -50,8 +61,6 @@
              var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
              var reelRating = (reelRatingAdd / 3);
              console.log("Reel Rating is " + Math.round(reelRating * 10) / 10);
-
-             $("#modalBodyRatings").empty();
 
              var ratings = $('<h5>').html("IMDb = " + imdbRatings + " Rotten Tomatoes = " + rottenRatings + " Metacritic = " + rottenRatings + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
 
