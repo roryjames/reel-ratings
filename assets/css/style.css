@@ -133,30 +133,6 @@ bottom: 0;
   display:none;
 }
 
-
-
-/*modal bg */
-.modal {
-    position: fixed; 
-    z-index: 5; 
-    left: 0;
-    top: 0;
-    width: 80%; 
-    height: 80%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-/*modal Content */
-.modal-content {
-  z-index: 2;
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
-}
-
 .close {
     color: black;
     float: right;
