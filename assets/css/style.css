@@ -15,7 +15,9 @@ body{
  	margin: 0px;
   height:100%;
  }
-
+.movieBox img.img-responsive {
+    height: 400px;
+}
 h1{
   font-size:140%;
   color: #333;
