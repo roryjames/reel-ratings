@@ -15,7 +15,6 @@ body{
  	margin: 0px;
   height:100%;
  }
-
 h1{
   font-size:140%;
   color: #333;
@@ -45,21 +44,6 @@ a {color:blue;}
 a:hover {color:red;}
 a:visited {color:purple;}
 a:active {color:blue;}
-
-/*.btn{
-  	font-size:16px; 
-  	background-color: green; 
-  	color:white; 
-  	width:auto;
-  	padding:10px; 
-  	margin:10px; 
-  	border-radius:10px;
-}
-
-.btn:hover{
-  background-color: yellow !important; 
-  border:1px green solid;
-}*/
 
 .fb-btn{
   position: relative;
@@ -94,7 +78,15 @@ border-top: 3px green solid;
 margin-top:10px;
 bottom: 0;
 }
+.movieBox img.img-responsive {
+    height: 400px;
 
+}
+.movieBox img.img-responsive:hover{
+  box-shadow: 5px 5px 15px #808080;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
 .ninety{
   width:90%;
 }
@@ -131,30 +123,6 @@ bottom: 0;
   display:none;
 }
 
-
-
-/*modal bg */
-.modal {
-    position: fixed; 
-    z-index: 5; 
-    left: 0;
-    top: 0;
-    width: 80%; 
-    height: 80%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-/*modal Content */
-.modal-content {
-  z-index: 2;
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
-}
-
 .close {
     color: black;
     float: right;
@@ -167,16 +135,4 @@ bottom: 0;
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-
-@media screen and (max-width:980px){
-  .fifty {width:45%;}
-}
-@media screen and (max-width:768px){
-  .fifty {width:30%;}
-}
-
-@media screen and (max-width:640px){
-  .fifty {width:25%;}
 }
