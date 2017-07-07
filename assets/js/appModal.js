@@ -19,8 +19,12 @@ $('body').on("click", "img", function() { //dom for image click
 
             $("#modalMovieDiv").empty(); //clears div of any content
 
-            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' +
-                '<br><h5>' + '"' + response.tagline + '"</h5>');
+            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')'); 
+            
+            if (response.tagline != "") {
+
+                $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
+            }
 
             $("#myModal").modal("show");
 
@@ -40,8 +44,12 @@ $('body').on("click", "img", function() { //dom for image click
 
             $("#modalMovieDiv").empty();
 
-            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' +
-                '<br><h5>' + '"' + response.tagline + '"</h5>');
+            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' );
+
+            if (response.tagline != "") {
+
+                $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
+            }
 
             var ytKey = response.videos.results['0'].key;
 
