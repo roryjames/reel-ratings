@@ -33,9 +33,15 @@ $(document).ready(function() {
                     var posterBox = $('<div>'); //creates div for poster
                     posterBox.addClass('col-xs-12 posterBox'); 
 
+
                     var img = $('<img>');
                     img.addClass('img-responsive');
-                    img.attr("src", "https://image.tmdb.org/t/p/w342//" + results[i].poster_path);
+                    if (results[i].poster_path == null){
+                        img.attr('src', 'assets/media/image_not_found.png');
+                    }
+                    else{
+                        img.attr("src", "https://image.tmdb.org/t/p/w342//" + results[i].poster_path);
+                    }
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
@@ -51,9 +57,13 @@ $(document).ready(function() {
                     var str = results[i].name;
                     str = str.replace(/\s+/g, '-').toLowerCase();
 
-                    var yearFull = results[i].first_air_date; //takes release date from themoviedb 
-                    var year = yearFull.substring(0, 4); //extracts the year
-
+                    if (results[i].first_air_date === ""){
+                        var year = "N/A";
+                    }
+                    else{
+                        var yearFull = results[i].first_air_date; //takes release date from themoviedb 
+                        var year = yearFull.substring(0, 4); //extracts the year
+                    }
                     var movieBox = $('<div>'); //creates div for poster + info
                     movieBox.addClass('col-xs-6 col-lg-4 movieBox');
 
@@ -62,7 +72,14 @@ $(document).ready(function() {
 
                     var img = $('<img>');
                     img.addClass('img-responsive');
-                    img.attr("src", "https://image.tmdb.org/t/p/w342//" + results[i].poster_path);
+
+                    if (results[i].poster_path == null){
+                        img.attr('src', 'assets/media/image_not_found.png');
+                    }
+                    else{
+                        img.attr("src", "https://image.tmdb.org/t/p/w342//" + results[i].poster_path);
+                    }
+
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);

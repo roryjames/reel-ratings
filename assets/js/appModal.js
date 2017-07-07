@@ -7,7 +7,12 @@ $('body').on("click", "img", function() { //dom for image click
 
     $.ajax({
         url: queryURL,
-        method: "GET"
+        method: "GET",
+        error: function(xhr, ajaxOptions, thrownError){
+            if(xhr.status=404){
+                console.log(this + ' is throwing error ' + thrownError);
+            }
+        }
     }).done(function(response) {
 
         if (response.videos.results['0'] === undefined) { //if video is undefined
@@ -78,7 +83,6 @@ $('body').on("click", "img", function() { //dom for image click
 
                 var noRatings = $('<h5>').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
-                
             } else if (response.Ratings[1] === undefined) {
                 imdbHundred = response.Ratings[0].Value;
                 imdbNums = imdbHundred.split('/');
