@@ -11,15 +11,14 @@ html{
 body{	
  	font-size:16px; 
  	font-family:sans-serif;
-  line-height: 140%;
  	margin: 0px;
   height:100%;
  }
 h1{
-  font-size:140%;
   color: #333;
   font-weight: bold;
   margin-bottom:10px;
+  font-family:'Roboto', sans-serif;
 }
 h2{
   font-size:120%;
@@ -29,8 +28,7 @@ h2{
 }
 
 h4{
- 	color:blue;
-  font-size: 120%;
+ 	color:#fff;
   margin:0px 0px 10px 0px;
  }
 
@@ -53,7 +51,10 @@ a:active {color:blue;}
   min-height: 100%;
   margin-bottom: 50px; 
 }
-
+.jumbotron{
+  background-color: #2f2f30;
+  box-shadow: 0 10px 50px #888888;
+}
 .wrap:after {
   content: "";
   display: block;
