@@ -15,34 +15,18 @@ $('body').on("click", "img", function() { //dom for image click
         }
     }).done(function(response) {
 
-        if (response.videos.results['0'] === undefined) { //if video is undefined
-
             $("#modalMovieDiv").empty(); //clears div of any content
 
-            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' +
-                '<br><h5>' + '"' + response.tagline + '"</h5>');
+            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')'); 
+            
+            if (response.tagline != "") {
+
+                $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
+            }
 
             $("#myModal").modal("show");
 
-        }
-        // code to see if tagline = "", dont display it
-        // else if (response.videos.results['0'] === undefined && response.tagline != '""') {
-
-        //     $("#modalMovieDiv").empty();
-
-        //     $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' +
-        //         '<br><h5>' + '"' + response.tagline + '"</h5>');
-
-        //     $("#myModal").modal("show");
-        // }
-        else {
-            console.log(response.videos.results['0'].key); //if video  exists
-
-            $("#modalMovieDiv").empty();
-
-            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')' +
-                '<br><h5>' + '"' + response.tagline + '"</h5>');
-
+            if (response.videos.results['0'] != undefined){
             var ytKey = response.videos.results['0'].key;
 
             var youtube = $('<iframe>'); //creates iframe for movie
@@ -53,16 +37,14 @@ $('body').on("click", "img", function() { //dom for image click
             movieDiv.append(youtube);
 
             $('#modalMovieDiv').append(movieDiv); //appens video to div
+            }
 
             $("#myModal").modal("show");
-        }
 
     });
 
     var dataRatings = $(this).attr("data-ratings");
     var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=40e9cece";
-
-    console.log(queryURLrating);
 
     $.ajax({ //ajax call to grab rating / information
         url: queryURLrating,
