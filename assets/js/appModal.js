@@ -1,55 +1,95 @@
 $(document).ready(function() {
-var imdbRatings, rottenRatings, metaRatings;
+    var imdbRatings, rottenRatings, metaRatings, dataMedia;
 
-$('body').on("click", "img", function() { //dom for image click
-    var dataId = $(this).attr("data-id");
-    var queryURL = "https://api.themoviedb.org/3/movie/" + dataId + "?api_key=50c9867e013d532a54d305162ee29e35&append_to_response=videos";
+    $('body').on("click", "img", function() { //dom for image click
+        var dataMedia = $(this).attr("data-media");
 
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        error: function(xhr, ajaxOptions, thrownError){
-            if(xhr.status=404){
-                console.log(this + ' is throwing error ' + thrownError);
-            }
+        if (dataMedia === "movie") {
+            var dataId = $(this).attr("data-id");
+            var queryURL = "https://api.themoviedb.org/3/movie/" + dataId + "?api_key=50c9867e013d532a54d305162ee29e35&append_to_response=videos";
+
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                error: function(xhr, ajaxOptions, thrownError) {
+                    if (xhr.status = 404) {
+                        console.log(this + ' is throwing error ' + thrownError);
+                    }
+                }
+            }).done(function(response) {
+
+                $("#modalMovieDiv").empty(); //clears div of any content
+
+                $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')');
+
+                if (response.tagline != "") {
+
+                    $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
+                }
+
+                $("#myModal").modal("show");
+
+                if (response.videos.results['0'] != undefined) {
+                    var ytKey = response.videos.results['0'].key;
+
+                    var youtube = $('<iframe>'); //creates iframe for movie
+                    youtube.addClass('allowfullscreen frameborder="0"');
+                    youtube.attr("src", "https://www.youtube.com/embed/" + ytKey);
+                    var movieDiv = $('<div>');
+                    movieDiv.addClass('embed-responsive embed-responsive-16by9');
+                    movieDiv.append(youtube);
+
+                    $('#modalMovieDiv').append(movieDiv); //appens video to div
+                }
+
+                $("#myModal").modal("show");
+
+            });
         }
-    }).done(function(response) {
+        if (dataMedia === "tv") {
+            var dataId = $(this).attr("data-id");
+            var queryURL = "https://api.themoviedb.org/3/tv/" + dataId + "?api_key=50c9867e013d532a54d305162ee29e35&append_to_response=videos";
 
-            $("#modalMovieDiv").empty(); //clears div of any content
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                error: function(xhr, ajaxOptions, thrownError) {
+                    if (xhr.status = 404) {
+                        console.log(this + ' is throwing error ' + thrownError);
+                    }
+                }
+            }).done(function(response) {
 
-            $("#modalTitleH4").html(response.title + ' (' + response.release_date + ')'); 
-            
-            if (response.tagline != "") {
+                $("#modalMovieDiv").empty(); //clears div of any content
 
-                $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
-            }
+                $("#modalTitleH4").html(response.name + ' (' + response.first_air_date + ')');
 
-            $("#myModal").modal("show");
+                $("#myModal").modal("show");
 
-            if (response.videos.results['0'] != undefined){
-            var ytKey = response.videos.results['0'].key;
+                if (response.videos.results['0'] != undefined) {
+                    var ytKey = response.videos.results['0'].key;
 
-            var youtube = $('<iframe>'); //creates iframe for movie
-            youtube.addClass('allowfullscreen frameborder="0"');
-            youtube.attr("src", "https://www.youtube.com/embed/" + ytKey);
-            var movieDiv = $('<div>');
-            movieDiv.addClass('embed-responsive embed-responsive-16by9');
-            movieDiv.append(youtube);
+                    var youtube = $('<iframe>'); //creates iframe for movie
+                    youtube.addClass('allowfullscreen frameborder="0"');
+                    youtube.attr("src", "https://www.youtube.com/embed/" + ytKey);
+                    var movieDiv = $('<div>');
+                    movieDiv.addClass('embed-responsive embed-responsive-16by9');
+                    movieDiv.append(youtube);
 
-            $('#modalMovieDiv').append(movieDiv); //appens video to div
-            }
+                    $('#modalMovieDiv').append(movieDiv); //appens video to div
+                }
 
-            $("#myModal").modal("show");
+                $("#myModal").modal("show");
 
-    });
+            });
+        }
+        var dataRatings = $(this).attr("data-ratings");
+        var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=40e9cece";
 
-    var dataRatings = $(this).attr("data-ratings");
-    var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=40e9cece";
-
-    $.ajax({ //ajax call to grab rating / information
-        url: queryURLrating,
-        method: "GET"
-    }).done(function(response) {
+        $.ajax({ //ajax call to grab rating / information
+            url: queryURLrating,
+            method: "GET"
+        }).done(function(response) {
             //clears existing divs
             $("#modalBodyDiv").empty();
             $("#modalBodyRatings").empty();
@@ -107,11 +147,10 @@ $('body').on("click", "img", function() { //dom for image click
 
                 var ratings = $('<h5>').html("IMDb = " + imdbRatings + " Rotten Tomatoes = " + rottenRatings + " Metacritic = " + metaRatings + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
 
-                
+
                 $("#modalBodyRatings").append(ratings);
             }
-            });
+        });
     });
 
 });
-

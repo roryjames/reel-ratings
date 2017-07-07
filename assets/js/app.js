@@ -27,6 +27,8 @@ $(document).ready(function() {
                     var yearFull = results[i].release_date; //takes release date from themoviedb 
                     var year = yearFull.substring(0, 4); //extracts the year
 
+                    var mediaType = results[i].media_type;
+
                     var movieBox = $('<div>'); //creates div for poster + info
                     movieBox.addClass('col-xs-6 col-lg-4 movieBox');
 
@@ -42,6 +44,7 @@ $(document).ready(function() {
                     else{
                         img.attr("src", "https://image.tmdb.org/t/p/w342//" + results[i].poster_path);
                     }
+                    img.attr('data-media', mediaType);
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
@@ -56,6 +59,8 @@ $(document).ready(function() {
                 else {
                     var str = results[i].name;
                     str = str.replace(/\s+/g, '-').toLowerCase();
+
+                    var mediaType = results[i].media_type;
 
                     if (results[i].first_air_date === ""){
                         var year = "N/A";
@@ -82,6 +87,7 @@ $(document).ready(function() {
 
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
+                    img.attr('data-media', mediaType);
                     img.attr('data-ratings', str + "&y=" + year);
                     var information = $('<h4>').html(results[i].name + " ("+ year +")");
                     posterBox.append(img, information);
