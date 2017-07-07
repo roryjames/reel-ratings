@@ -8,8 +8,8 @@ body html {
   font-size:16px; 
   font-family:sans-serif;
   line-height: 140%;
-  padding:0;
-  margin:0;
+/*  padding:0;
+  margin:0;*/
 }
     
 .wrapper {
@@ -72,10 +72,11 @@ a:active {color:blue;}
   background-color: black; 
   height: 20px;  
   width:100%;
+  margin-bottom:10px;
   /*bottom:0; */
   text-align: center; 
   /*position:fixed;*/
-  /*position:static;*/
+  position:static;
 }
 
 .marginFooter{margin-bottom:20px;}
