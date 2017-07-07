@@ -52,8 +52,7 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[j].id);
                     img.attr('data-ratings', str + "&y=" + year);
-                    var information = $('<h4>').html(results[j].title + " ("+ year +")");
-                    posterBox.append(img, information);
+                    posterBox.append(img);
 
                     movieBox.append(posterBox);
 
