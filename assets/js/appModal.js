@@ -46,8 +46,6 @@ $('body').on("click", "img", function() { //dom for image click
     var dataRatings = $(this).attr("data-ratings");
     var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=40e9cece";
 
-    console.log(queryURLrating);
-
     $.ajax({ //ajax call to grab rating / information
         url: queryURLrating,
         method: "GET"
