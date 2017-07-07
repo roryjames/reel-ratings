@@ -31,7 +31,6 @@
                     </form>
                 </div>
 
-<div id="page">
 
                 <div id="moviesHere" class="row movieContainer"></div>
                 <div id="myModal" class="modal fade" role="dialog">
@@ -58,14 +57,11 @@
 
         </div>
 
-</div><!--page-->
 
-<footer id="colophon" class="footer">&copy; Copyright 2017 A Walk in the Park</footer>
+<footer class="footer">&copy; Copyright 2017 A Walk in the Park</footer>
 
      </div>
 
-
-    
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/appModal.js"></script>
@@ -73,24 +69,7 @@
 
     <script type="text/javascript">
 
-    // $(document).ready(function(){
-    //     $(window).resize(function(){
-    //             var footerHeight = $('.footer').outerHeight();
-    //             var stickFooterPush = $('.push').height(footerHeight);
-        
-    //             $('.wrapper').css({'marginBottom':'-' + footerHeight + 'px'});
-    //         });
-        
-    //         $(window).resize();
-    //     });
-
-    $(document).ready(function() {
-  var bodyHeight = $("body").height();
-  var vwptHeight = $(window).height();
-  if (vwptHeight > bodyHeight) {
-    $("footer#colophon").css("position","absolute").css("bottom",0);
-  }
-});
+    $('body').css('margin-bottom', $('.footer').height());
 
     </script>
 
