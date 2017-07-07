@@ -55,6 +55,8 @@ a:active {color:blue;}
   background-color: #2f2f30;
   box-shadow: 0 10px 50px #888888;
 }
+.jumbotron h1,.jumbotron h2,.jumbotron h3,.jumbotron h4,.jumbotron p{
+  color:#fff;}
 .wrap:after {
   content: "";
   display: block;
@@ -93,6 +95,7 @@ bottom: 0;
   position:absolute;
   bottom:0;
   margin-bottom:20px;
+  color:#222;
 }
 .form-group{
   width:100%;
