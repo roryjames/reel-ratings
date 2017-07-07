@@ -33,7 +33,9 @@ h4{
   font-size: 120%;
   margin:0px 0px 10px 0px;
  }
-
+h5{
+  font-weight:bold;
+}
 ul {
     list-style: square;
     display: block;
@@ -78,14 +80,19 @@ border-top: 3px green solid;
 margin-top:10px;
 bottom: 0;
 }
-.movieBox img.img-responsive {
-    height: 400px;
 
-}
 .movieBox img.img-responsive:hover{
   box-shadow: 5px 5px 15px #808080;
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
+}
+.posterBox{
+  height:500px;
+  width:300px;
+}
+.posterBox h4{
+  position:absolute;
+  bottom:10px;
 }
 .ninety{
   width:90%;
