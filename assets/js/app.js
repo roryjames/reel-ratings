@@ -19,7 +19,7 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
 
-                if (results[i].name === undefined){
+                if (results[i].name === undefined){ //api returns 'name' for TV shows, not 'title'
 
                     var str = results[i].title;
                     str = str.replace(/\s+/g, '-').toLowerCase();
