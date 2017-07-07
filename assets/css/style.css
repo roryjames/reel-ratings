@@ -77,25 +77,25 @@ a:active {color:blue;}
   content: "";
   display: block;
 }
-.sticky-footer, .wrap:after {
+/*.sticky-footer, .wrap:after {
   height: 60px; 
 }
 .sticky-footer{
   margin-top:-60px;
-}
+}*/
 
-footer{
-position: relative;
-width:100%;
-font-size: 90%;
+.footer{
+/*position: static;*/
+/*width:100%;*/
+font-size: 80%;
 padding:5px 5px 5px 5px;
 clear:both;
 color:#333;
 background-color: #ededed;
 text-align: center;
 border-top: 3px green solid;
-margin-top:10px;
-bottom: 0;
+/*margin-top:10px;*/
+/*bottom: 0;*/
 }
 
 .movieBox img.img-responsive:hover{
@@ -172,8 +172,12 @@ bottom: 0;
 @media (min-width:768px){
   .form-group #titleSearch{
   width:50%;
-}
+}}
 
+@media (min-width:640px){
+  .posterBox{
+  width:100%;
+}
 }
 
 @media (max-width:768px){
