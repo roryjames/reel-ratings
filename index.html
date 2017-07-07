@@ -11,12 +11,14 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12">
                 <div class="jumbotron">
-                    <h1>Reel Ratings</h1>
-                    <p>Search for a movie rating..</p>
+                    <h1 class="right">Reel Ratings</h1>
+                    <p style="margin-top:60px; color:black;">Search for a movie rating...</p>
                     <form class="form-inline">
                         <div class="form-group">
                             <input type="text" class="form-control" id="titleSearch" placeholder="Search a Movie, TV Show, Person...">
@@ -27,6 +29,9 @@
                         </div>
                     </form>
                 </div>
+
+<div id="page">
+
                 <div id="moviesHere" class="row movieContainer"></div>
                 <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -49,11 +54,45 @@
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+
+</div><!--page-->
+
+<footer id="colophon" class="footer">&copy; Copyright 2017 A Walk in the Park</footer>
+
+     </div>
+
+
+    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/appModal.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
+
+    <script type="text/javascript">
+
+    // $(document).ready(function(){
+    //     $(window).resize(function(){
+    //             var footerHeight = $('.footer').outerHeight();
+    //             var stickFooterPush = $('.push').height(footerHeight);
+        
+    //             $('.wrapper').css({'marginBottom':'-' + footerHeight + 'px'});
+    //         });
+        
+    //         $(window).resize();
+    //     });
+
+    $(document).ready(function() {
+  var bodyHeight = $("body").height();
+  var vwptHeight = $(window).height();
+  if (vwptHeight > bodyHeight) {
+    $("footer#colophon").css("position","absolute").css("bottom",0);
+  }
+});
+
+    </script>
+
 </body>
 
 </html>

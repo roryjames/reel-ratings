@@ -1,20 +1,40 @@
-/*Project 1 - G.C. Lou*/
-
  * {
   margin: 0;
 }
 
-html{
-  height: 100%;
-}
-
-body{	
+/*body{	
  	font-size:16px; 
  	font-family:sans-serif;
   line-height: 140%;
  	margin: 0px;
-  height:100%;
- }
+ }*/
+
+/*body {
+  height: 100%;
+  font-size:16px; 
+  font-family:sans-serif;
+  line-height: 140%;
+  padding:0;
+  margin:0;
+}*/
+
+body {
+    margin: 0;
+    padding: 0;
+    }
+    
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 h1{
   font-size:140%;
   color: #333;
@@ -49,7 +69,37 @@ a:active {color:blue;}
   position: relative;
   text-align: center;
 }
-.wrap {
+
+.jumbotron {
+    background: #000 url("../media/light.png") no-repeat center center;
+    background-size: 100% 100%;
+    /*background-size: cover;*/
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    max-width:100% 100%;
+    height:200px;
+    color: #FFF; 
+}
+
+/*added footer class for sticky footer*/
+.footer{
+  font-size: 80%;
+  color: #ededed; 
+  background-color: black; 
+  height: 20px;  
+  width:100%;
+  /*bottom:0; */
+  text-align: center; 
+  /*position:relative;*/
+  /*position:fixed;*/
+  /*position:static;*/
+  /*position:static;*/
+}
+
+.marginFooter{margin-bottom:20px;}
+
+/*.wrap {
   min-height: 100%;
   margin-bottom: 50px; 
 }
@@ -77,7 +127,7 @@ text-align: center;
 border-top: 3px green solid;
 margin-top:10px;
 bottom: 0;
-}
+}*/
 
 .movieBox img.img-responsive:hover{
   box-shadow: 5px 5px 15px #808080;
@@ -124,6 +174,7 @@ bottom: 0;
     float:left; 
     margin:10px; 
 }
+.right{float:right;}
 
 .show{
   display:inline;
@@ -147,7 +198,7 @@ bottom: 0;
     cursor: pointer;
 }
 
-@media (min-width:768px){
+@media (min-width:640px){
   .form-group #titleSearch{
   width:50%;
 }

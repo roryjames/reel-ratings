@@ -88,6 +88,9 @@ $(document).ready(function() {
 
                     movieBox.append(posterBox);
 
+                    //added margin below to add space between footer and last row of display
+                    movieBox.addClass("marginFooter");
+                    
                     $('#moviesHere').append(movieBox);
                 }
             };
