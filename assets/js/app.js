@@ -19,7 +19,7 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
 
-                if (results[i].name === undefined){
+                if (results[i].name === undefined){ //api returns 'name' for TV shows, not 'title'
 
                     var str = results[i].title;
                     str = str.replace(/\s+/g, '-').toLowerCase();
@@ -31,7 +31,7 @@ $(document).ready(function() {
                     movieBox.addClass('col-xs-6 col-lg-4 movieBox');
 
                     var posterBox = $('<div>'); //creates div for poster
-                    posterBox.addClass('col-xs-12');
+                    posterBox.addClass('col-xs-12 posterBox'); 
 
                     var img = $('<img>');
                     img.addClass('img-responsive');
@@ -39,7 +39,7 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
-                    var information = $('<h5>').html(results[i].title + " ("+ year +")");
+                    var information = $('<h4>').html(results[i].title + " ("+ year +")");
                     posterBox.append(img, information);
 
                     movieBox.append(posterBox);
@@ -58,7 +58,7 @@ $(document).ready(function() {
                     movieBox.addClass('col-xs-6 col-lg-4 movieBox');
 
                     var posterBox = $('<div>'); //creates div for poster
-                    posterBox.addClass('col-xs-12');
+                    posterBox.addClass('col-xs-12 posterBox');
 
                     var img = $('<img>');
                     img.addClass('img-responsive');
@@ -66,7 +66,7 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
-                    var information = $('<h5>').html(results[i].title + " ("+ year +")");
+                    var information = $('<h4>').html(results[i].name + " ("+ year +")");
                     posterBox.append(img, information);
 
                     movieBox.append(posterBox);

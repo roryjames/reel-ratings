@@ -78,6 +78,7 @@ $('body').on("click", "img", function() { //dom for image click
 
                 var noRatings = $('<h5>').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
+                
             } else if (response.Ratings[1] === undefined) {
                 imdbHundred = response.Ratings[0].Value;
                 imdbNums = imdbHundred.split('/');
