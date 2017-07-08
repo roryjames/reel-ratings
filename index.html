@@ -7,6 +7,7 @@
     <title>Reel Ratings - The Rating You've Been Looking For</title>
     <link rel="shortcut icon" href="assets/media/reel_favicon.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
@@ -16,6 +17,12 @@
 </head>
 
 <body>
+    <div id="hola">
+        <div id="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
     <div class="container">
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12">
@@ -31,7 +38,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="moviesHere" class="row movieContainer"></div>
+                <div id="moviesHere" class="row movieContainer home"></div>
                 <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -63,6 +70,8 @@
     <script type="text/javascript" src="assets/js/appModal.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript" src="assets/js/randomMovie.js"></script>
+
+    <script type="text/javascript" src="assets/js/velocity.js"></script>
 </body>
 
 </html>
