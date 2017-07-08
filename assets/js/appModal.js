@@ -101,22 +101,21 @@ $(document).ready(function() {
 
             $("#modalBodyDiv").append(information);
 
+            var imdbHundred = response.Ratings[0].Value;
+            console.log('imdbhundred = ' + imdbHundred);
+            var imdbNums = imdbHundred.split('/');
+            var imdbRatings = parseFloat(imdbNums[0]);
+
             if (response.Ratings.length === 0) {
 
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
 
             } else if (response.Ratings[1] === undefined) {
-                imdbHundred = response.Ratings[0].Value;
-                imdbNums = imdbHundred.split('/');
-                imdbRatings = parseFloat(imdbNums[0]);
 
                 var oneRatings = $('<h5>').html("IMDb = " + imdbRatings);
                 $("#modalBodyRatings").append(oneRatings);
             } else if (response.Ratings[2] === undefined) {
-                imdbHundred = response.Ratings[0].Value;
-                imdbNums = imdbHundred.split('/');
-                imdbRatings = parseFloat(imdbNums[0]);
 
                 rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
 
@@ -128,10 +127,8 @@ $(document).ready(function() {
                 $("#modalBodyRatings").append(twoRatings);
             } else {
 
-                imdbHundred = response.Ratings[0].Value;
-                imdbNums = imdbHundred.split('/');
-                imdbRatings = parseFloat(imdbNums[0]);
-
+                var rottenPercent = response.Ratings[1].Value;
+                console.log('rotten percent is ' + rottenPercent);
                 rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
 
                 metaHundred = (response.Ratings[2].Value);
@@ -146,7 +143,7 @@ $(document).ready(function() {
                 var reelRating = (reelRatingAdd / 3);
                 console.log("Reel Rating is " + Math.round(reelRating * 10) / 10);
 
-                var ratings = $('<h2>').html("IMDb = "  + imdbRatings + " Rotten Tomatoes = " + rottenRatings + " Metacritic = " + metaRatings + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
+                var ratings = $('<h2>').html("IMDb = "  + imdbHundred + " Rotten Tomatoes = " + rottenPercent + " Metacritic = " + metaHundred + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
 
                 $("#modalBodyRatings").append(ratings);
             }
