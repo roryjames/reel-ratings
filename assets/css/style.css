@@ -18,7 +18,8 @@ h1{
   color: #333;
   font-weight: bold;
   margin-bottom:10px;
-  font-family:'Roboto', sans-serif;
+  font-family: 'Pacifico', cursive;
+  
 }
 h2{
   font-size:120%;
@@ -43,7 +44,11 @@ ul {
     margin-left:20px;
 }
 h2, h3, h4, h5, p{
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Quicksand', sans-serif;
+}
+p.disclaimer {
+    text-align: center;
+    font-size: 14px;
 }
 a {color:blue;}
 a:hover {color:red;}
@@ -61,6 +66,7 @@ a:active {color:blue;}
 .jumbotron{
   background-color: #2f2f30;
   box-shadow: 0 10px 50px #888888;
+  text-align: center;
 }
 .jumbotron h1,.jumbotron h2,.jumbotron h3,.jumbotron h4,.jumbotron p{
   color:#fff;}
@@ -171,29 +177,36 @@ hr{
     border-color: #bcbcbc;
 }
 @media (min-width:768px){
-  .form-group #titleSearch{
-  width:50%;
+    .form-group #titleSearch{
+    width:50%;
+  }
+  .img-wrapper img{
+    height:375px;
+  }
+  .modal-content{
+        background-color: #ccc;
+  }
+    h2.reel-rating{
+    font-size:35px;
+  }
 }
-.img-wrapper img{
-  height:375px;
-}
-.modal-content{
-      background-color: #ccc;
-}
-
-}
-
 @media (max-width:768px){
-  .posterBox{
-  height:285px;
-  width:100%;
-}
-.img-wrapper{
-  height:220px;
-}
-.btn-default{
-  background-color:#ccc;
-  width:100%;
-  margin-top:20px;
-}
+    .posterBox{
+    height:285px;
+    width:100%;
+  }
+  .img-wrapper{
+    height:220px;
+  }
+  .btn-default{
+    background-color:#ccc;
+    width:100%;
+    margin-top:20px;
+  }
+  h2.reel-rating{
+    font-size:25px;
+  }
+  .jumbotron p{
+    font-size:15px;
+  }
 }
