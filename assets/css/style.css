@@ -66,21 +66,21 @@ a:active {color:blue;}
 .sticky-footer{
   margin-top:-60px;
 }
-
-footer{
-position: relative;
-width:100%;
-font-size: 90%;
-padding:5px 5px 5px 5px;
-clear:both;
-color:#333;
-background-color: #ededed;
-text-align: center;
-border-top: 3px green solid;
-margin-top:10px;
-bottom: 0;
+li.logo{
+  list-style-type: none;
+  display: inline-block;  
 }
-
+.logo img {
+    height: 35px;
+}
+#modalBodyRatings{
+  display:flex;
+  justify-content: space-around;
+}
+#modalBodyRatings li {
+    text-align: center;
+    font-weight:bold;
+}
 .movieBox img.img-responsive:hover{
   box-shadow: 5px 5px 15px #808080;
   transition: box-shadow 0.3s ease-in-out;
