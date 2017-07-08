@@ -50,10 +50,12 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
+
                     img.attr('title', results[i].title + " ("+ year +")");
                     
                     imgWrapper.append(img);
                     posterBox.append(imgWrapper);
+
                     movieBox.append(posterBox);
 
                     $('#moviesHere').append(movieBox);
