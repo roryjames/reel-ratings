@@ -101,53 +101,42 @@ $(document).ready(function() {
 
             $("#modalBodyDiv").append(information);
 
-            var imdbHundred = response.Ratings[0].Value;
-            console.log('imdbhundred = ' + imdbHundred);
-            var imdbNums = imdbHundred.split('/');
-            var imdbRatings = parseFloat(imdbNums[0]);
+            var imdbLogo = "<img src='./assets/media/imdb_200.png'>",
+                rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
+                metaLogo =   "<img src='./assets/media/Metacritic.png'>";
 
-            if (response.Ratings.length === 0) {
+            if (response.Ratings[0].Value != undefined) {
+                //IMDB ratings
+                var imdbHundred = response.Ratings[0].Value;
+                var imdbNums = imdbHundred.split('/');
+                var imdbRatings = parseFloat(imdbNums[0]);
 
+                $("#modalBodyRatings").append("<li class='logo imdb'> " + imdbLogo + " " + imdbHundred + "</li>");
+
+            }
+            if (response.Ratings[1].Value != undefined) {
+                //Rotten Tomatoes Ratings
+                var rottenPercent = response.Ratings[1].Value;
+                var rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
+                $("#modalBodyRatings").append("<li class='logo rotten-tomatoes'> " + rottenLogo + " " + rottenPercent + "</li>");
+
+            }
+            if (response.Ratings[2].Value != undefined) {
+                //Metacritic Ratings
+                var metaHundred = (response.Ratings[2].Value);
+                var metaNums = metaHundred.split('/');
+                var metaRatings = parseFloat(metaNums[0] / 10);
+                $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
+
+            }
+            if (imdbHundred === undefined && rottenPercent === undefined && metaHundred === undefined){
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
+            };
 
-            } else if (response.Ratings[1] === undefined) {
-
-                var oneRatings = $('<h5>').html("IMDb = " + imdbRatings);
-                $("#modalBodyRatings").append(oneRatings);
-            } else if (response.Ratings[2] === undefined) {
-
-                rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
-
-                var reelTwoRatingAdd = (imdbRatings + rottenRatings);
-                var reelTwoRating = (reelTwoRatingAdd / 2);
-                console.log("Reel Rating is " + Math.round(reelTwoRating * 10) / 10);
-
-                var twoRatings = $('<h5>').html("IMDb = " + imdbRatings + " Rotten Tomatoes = " + rottenRatings + "<br><br>" + "Reel Rating = " + Math.round(reelTwoRating * 10) / 10);
-                $("#modalBodyRatings").append(twoRatings);
-            } else {
-
-                var rottenPercent = response.Ratings[1].Value;
-                console.log('rotten percent is ' + rottenPercent);
-                rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
-
-                metaHundred = (response.Ratings[2].Value);
-                metaNums = metaHundred.split('/');
-                metaRatings = parseFloat(metaNums[0] / 10);
-                //rating results
-                console.log(imdbRatings);
-                console.log(rottenRatings);
-                console.log(metaRatings);
-
-                var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
-                var reelRating = (reelRatingAdd / 3);
-                console.log("Reel Rating is " + Math.round(reelRating * 10) / 10);
-
-                var ratings = $('<h2>').html("IMDb = "  + imdbHundred + " Rotten Tomatoes = " + rottenPercent + " Metacritic = " + metaHundred + "<br><br>" + "Reel Rating = " + Math.round(reelRating * 10) / 10);
-
-                $("#modalBodyRatings").append(ratings);
-            }
-        });
+            //Reel Ratings
+            var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
+            var reelRating = (reelRatingAdd / 3);
     });
-
+    });
 });
