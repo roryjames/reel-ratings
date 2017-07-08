@@ -154,6 +154,9 @@ bottom: 0;
   .form-group #titleSearch{
   width:50%;
 }
+.img-wrapper img{
+  height:400px;
+}
 
 }
 
