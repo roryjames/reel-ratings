@@ -61,12 +61,7 @@ a:active {color:blue;}
   content: "";
   display: block;
 }
-.sticky-footer, .wrap:after {
-  height: 60px; 
-}
-.sticky-footer{
-  margin-top:-60px;
-}
+
 
 footer{
 position: relative;
@@ -100,6 +95,7 @@ bottom: 0;
   width:100%;
 }
 
+
 .ninety{
   width:90%;
 }
@@ -124,8 +120,17 @@ bottom: 0;
   text-align: center;
 }
 .left{
-    float:left; 
+    text-align:left; 
     margin:10px; 
+}
+
+.right{
+    text-align:right; 
+    margin:10px; 
+}
+
+.bold{
+  font-weight:bold;
 }
 
 .show{
