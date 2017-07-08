@@ -8,12 +8,28 @@ html{
   height: 100%;
 }
 
-body{	
- 	font-size:16px; 
- 	font-family:sans-serif;
- 	margin: 0px;
+body{ 
+  font-size:16px; 
+  font-family:sans-serif;
+  margin: 0px;
   height:100%;
  }
+
+ .jumbotron {
+    background: #000 url("../media/light.png") no-repeat center center;
+    /*background-size: 100% 100%;*/
+    background-size: cover;
+    background-width:100%;
+    background-height:auto;  
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    max-width:100% 100%;
+    /*height:auto;*/
+    height:200px;
+    color: #FFF; 
+}
+
 h1{
   color: #333;
   font-weight: bold;
@@ -28,7 +44,7 @@ h2{
 }
 
 h4{
- 	color:#222;
+  color:#222;
   margin:0px 0px 10px 0px;
  }
 
@@ -61,25 +77,25 @@ a:active {color:blue;}
   content: "";
   display: block;
 }
-.sticky-footer, .wrap:after {
+/*.sticky-footer, .wrap:after {
   height: 60px; 
 }
 .sticky-footer{
   margin-top:-60px;
-}
+}*/
 
-footer{
-position: relative;
-width:100%;
-font-size: 90%;
+.footer{
+/*position: static;*/
+/*width:100%;*/
+font-size: 80%;
 padding:5px 5px 5px 5px;
 clear:both;
 color:#333;
 background-color: #ededed;
 text-align: center;
 border-top: 3px green solid;
-margin-top:10px;
-bottom: 0;
+/*margin-top:10px;*/
+/*bottom: 0;*/
 }
 
 .movieBox img.img-responsive:hover{
@@ -87,16 +103,26 @@ bottom: 0;
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
 }
-.posterBox{
-  height:500px;
+
+.thumbnail img{
+    max-width: 100%;
 }
-.posterBox h4{
-  position:absolute;
-  bottom:0;
-  margin-bottom:20px;
-  color:#222;
+
+.img-wrapper{
+  width: 100%;
+  padding-bottom: 150%;
+  position: relative;
 }
-.form-group{
+
+.img-wrapper img{
+  position: absolute;
+  top: 0; 
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  min-height: 100%;
+
+.form-group {
   width:100%;
 }
 
@@ -128,6 +154,8 @@ bottom: 0;
     margin:10px; 
 }
 
+.right{float:right;}
+
 .show{
   display:inline;
 }
@@ -153,8 +181,13 @@ bottom: 0;
 @media (min-width:768px){
   .form-group #titleSearch{
   width:50%;
-}
+}}
 
+<<<<<<< HEAD
+@media (min-width:640px){
+  .posterBox{
+  width:100%;
+}
 }
 
 @media (max-width:768px){
@@ -163,3 +196,6 @@ bottom: 0;
   width:100%;
 }
 }
+=======
+}
+>>>>>>> 0fa429f5c14859be17fe379a1d1eda7cb966b17e
