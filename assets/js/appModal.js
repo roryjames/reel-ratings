@@ -94,7 +94,7 @@ $(document).ready(function() {
             $("#modalBodyDiv").empty();
             $("#modalBodyRatings").empty();
             //creates information about movie
-            var information = $('<h5>').html(response.Genre + '<br>' +
+            var information = $('<h5>').html(response.Genre + '<br><br>' +
                 response.Plot + '<hr>' +
                 'Director: ' + response.Director + '<br>' +
                 'Cast: ' + response.Actors);
