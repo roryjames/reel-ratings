@@ -103,7 +103,7 @@ $(document).ready(function() {
 
             if (response.Ratings.length === 0) {
 
-                var noRatings = $('<h5>').html("No ratings exist for this film.");
+                var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
 
             } else if (response.Ratings[1] === undefined) {
