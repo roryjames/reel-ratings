@@ -25,7 +25,11 @@ h2{
   font-weight: bold;
   margin:3px;
 }
-
+h2.reel-rating {
+    color: #c00009;
+    text-align: center;
+    font-weight: bold;
+}
 h4{
  	color:#222;
   margin:0px 0px 10px 0px;

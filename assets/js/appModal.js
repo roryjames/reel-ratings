@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('body').on("click", "img", function() { //dom for image click
         var dataMedia = $(this).attr("data-media");
 
-        if (dataMedia === "movie") {
+        if (dataMedia === "movie" || dataMedia === undefined) {
             var dataId = $(this).attr("data-id");
             var queryURL = "https://api.themoviedb.org/3/movie/" + dataId + "?api_key=50c9867e013d532a54d305162ee29e35&append_to_response=videos";
 
@@ -105,6 +105,11 @@ $(document).ready(function() {
                 rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
                 metaLogo =   "<img src='./assets/media/Metacritic.png'>";
 
+            if (response.Ratings[0].Value === undefined && response.Ratings[1].Value === undefined && response.Ratings[2].Value === undefined){
+                var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
+                $("#modalBodyRatings").append(noRatings);
+            };
+
             if (response.Ratings[0].Value != undefined) {
                 //IMDB ratings
                 var imdbHundred = response.Ratings[0].Value;
@@ -129,14 +134,12 @@ $(document).ready(function() {
                 $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
 
             }
-            if (imdbHundred === undefined && rottenPercent === undefined && metaHundred === undefined){
-                var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
-                $("#modalBodyRatings").append(noRatings);
-            };
 
             //Reel Ratings
             var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
-            var reelRating = (reelRatingAdd / 3);
+            var reelRating = Math.round(((reelRatingAdd / 3) * 10 / 10));
+
+            $('.modal-header').append('<h2 class="reel-rating">Reel Rating: ' + reelRating + ' / 10</h2>');
     });
     });
 });
