@@ -107,8 +107,14 @@ $(document).ready(function() {
 
     $('#addShow').on("click", function(e) { //event handler for submit button
         event.preventDefault(); //prevents refreshing
-
         var show = $('#titleSearch').val().trim(); //takes user input from search
+
+        if (show == ""){
+            $('span.errorMessage').show();
+             }
+        else{
+            $('span.errorMessage').hide();
+
         var queryURL = "https://api.themoviedb.org/3/search/multi?api_key=50c9867e013d532a54d305162ee29e35&page=1&query=" + show;
         $.ajax({ //AJAX call for specific show being clicked
             url: queryURL,
@@ -212,5 +218,7 @@ $(document).ready(function() {
                 }
             }
         });
-    });
-});
+};
+    }); //#addShow on.click
+
+}); //document.ready

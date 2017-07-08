@@ -19,7 +19,7 @@ h1{
   font-weight: bold;
   margin-bottom:10px;
   font-family: 'Pacifico', cursive;
-  
+
 }
 h2{
   font-size:120%;
@@ -94,6 +94,19 @@ li.logo{
 #modalBodyRatings li {
     text-align: center;
     font-weight:bold;
+}
+.form-group{
+  position:relative;
+}
+.errorMessage{
+  display:none;
+  color:#fff;
+  font-family: 'Quicksand', sans-serif;
+  position: absolute;
+  top: 40px;
+  left: 401px;
+  font-weight: bold;
+  color: #ffc656;
 }
 .movieBox img.img-responsive:hover{
   box-shadow: 5px 5px 15px #808080;
@@ -208,5 +221,9 @@ hr{
   }
   .jumbotron p{
     font-size:15px;
+  }
+  span.errorMessage{
+    top: 100px;
+    left: 55px;
   }
 }
