@@ -139,7 +139,7 @@ $(document).ready(function() {
             var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
             var reelRating = Math.round(((reelRatingAdd / 3) * 10 / 10));
 
-            $('.modal-header').append('<h2 class="reel-rating">Reel Rating: ' + reelRating + ' / 10</h2>');
+            $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
     });
     });
 });
