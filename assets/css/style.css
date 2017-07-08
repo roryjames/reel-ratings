@@ -34,7 +34,9 @@ h4{
  	color:#222;
   margin:0px 0px 10px 0px;
  }
-
+h5.noRatings{
+  font-weight:bold;
+}
 ul {
     list-style: square;
     display: block;
