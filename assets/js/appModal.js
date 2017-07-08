@@ -101,40 +101,31 @@ $(document).ready(function() {
 
             $("#modalBodyDiv").append(information);
 
-            //IMDB ratings
-            var imdbHundred = response.Ratings[0].Value;
-            var imdbNums = imdbHundred.split('/');
-            var imdbRatings = parseFloat(imdbNums[0]);
-
-            //Rotten Tomatoes Ratings
-            var rottenPercent = response.Ratings[1].Value;
-            var rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
-
-            //Metacritic Ratings
-            var metaHundred = (response.Ratings[2].Value);
-            var metaNums = metaHundred.split('/');
-            var metaRatings = parseFloat(metaNums[0] / 10);
-
-            //Reel Ratings
-            var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
-            var reelRating = (reelRatingAdd / 3);
-
             var imdbLogo = "<img src='./assets/media/imdb_200.png'>",
                 rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
                 metaLogo =   "<img src='./assets/media/Metacritic.png'>";
 
-            if (imdbHundred != undefined) {
+            if (response.Ratings[0].Value != undefined) {
+                //IMDB ratings
+                var imdbHundred = response.Ratings[0].Value;
+                var imdbNums = imdbHundred.split('/');
+                var imdbRatings = parseFloat(imdbNums[0]);
 
                 $("#modalBodyRatings").append("<li class='logo imdb'> " + imdbLogo + " " + imdbHundred + "</li>");
 
             }
-            if (rottenPercent != undefined) {
-
+            if (response.Ratings[1].Value != undefined) {
+                //Rotten Tomatoes Ratings
+                var rottenPercent = response.Ratings[1].Value;
+                var rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
                 $("#modalBodyRatings").append("<li class='logo rotten-tomatoes'> " + rottenLogo + " " + rottenPercent + "</li>");
 
             }
-            if (metaHundred != undefined) {
-
+            if (response.Ratings[2].Value != undefined) {
+                //Metacritic Ratings
+                var metaHundred = (response.Ratings[2].Value);
+                var metaNums = metaHundred.split('/');
+                var metaRatings = parseFloat(metaNums[0] / 10);
                 $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
 
             }
@@ -142,6 +133,10 @@ $(document).ready(function() {
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
             };
+
+            //Reel Ratings
+            var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
+            var reelRating = (reelRatingAdd / 3);
     });
     });
 });
