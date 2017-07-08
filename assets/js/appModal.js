@@ -104,8 +104,8 @@ $(document).ready(function() {
             var imdbLogo = "<img src='./assets/media/imdb_200.png'>",
                 rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
                 metaLogo =   "<img src='./assets/media/Metacritic.png'>";
-
-            if (response.Ratings[0].Value === undefined && response.Ratings[1].Value === undefined && response.Ratings[2].Value === undefined){
+                console.log(response.Ratings);
+            if (response.Ratings === undefined) {
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
             };
@@ -138,7 +138,8 @@ $(document).ready(function() {
             //Reel Ratings
             var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
             var reelRating = Math.round(((reelRatingAdd / 3) * 10 / 10));
-
+            console.log(metaRatings);
+            $('.reel-rating').empty();
             $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
     });
     });
