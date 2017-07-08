@@ -42,7 +42,9 @@ ul {
     display: block;
     margin-left:20px;
 }
-
+h2, h3, h4, h5, p{
+  font-family: 'Inconsolata', monospace;
+}
 a {color:blue;}
 a:hover {color:red;}
 a:visited {color:purple;}
