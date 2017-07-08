@@ -165,4 +165,12 @@ bottom: 0;
   height:285px;
   width:100%;
 }
+.img-wrapper img{
+  height:250px;
+}
+.btn-default{
+  background-color:#ccc;
+  width:100%;
+  margin-top:20px;
+}
 }
