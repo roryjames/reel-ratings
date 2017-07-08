@@ -24,7 +24,7 @@ $(document).ready(function() {
 
                 if (response.tagline != "") {
 
-                    $("#modalTitleH4").append('<br><h5>' + '"' + response.tagline + '"</h5>');
+                    $("#modalTitleH4").append('<br><h5 class="tagline">' + '"' + response.tagline + '"</h5>');
                 }
 
                 $("#myModal").modal("show");
@@ -35,7 +35,7 @@ $(document).ready(function() {
                     var youtube = $('<iframe>'); //creates iframe for movie
                     youtube.addClass('allowfullscreen frameborder="0"');
                     youtube.attr("src", "https://www.youtube.com/embed/" + ytKey);
-                    var movieDiv = $('<div>');
+                    var movieDiv = $('<div class="movie">');
                     movieDiv.addClass('embed-responsive embed-responsive-16by9');
                     movieDiv.append(youtube);
 
@@ -72,7 +72,7 @@ $(document).ready(function() {
                     var youtube = $('<iframe>'); //creates iframe for movie
                     youtube.addClass('allowfullscreen frameborder="0"');
                     youtube.attr("src", "https://www.youtube.com/embed/" + ytKey);
-                    var movieDiv = $('<div>');
+                    var movieDiv = $('<div class="movie">');
                     movieDiv.addClass('embed-responsive embed-responsive-16by9');
                     movieDiv.append(youtube);
 
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
                 var noRatings = $('<h5>').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
-                
+
             } else if (response.Ratings[1] === undefined) {
                 imdbHundred = response.Ratings[0].Value;
                 imdbNums = imdbHundred.split('/');
