@@ -30,11 +30,13 @@ $(document).ready(function() {
                     var mediaType = results[i].media_type;
 
                     var movieBox = $('<div>'); //creates div for poster + info
-                    movieBox.addClass('col-xs-6 col-lg-4 movieBox');
+                    movieBox.addClass('col-xs-6 col-sm-3 movieBox');
 
                     var posterBox = $('<div>'); //creates div for poster
-                    posterBox.addClass('col-xs-12 posterBox'); 
+                    posterBox.addClass('thumbnail');
 
+                    var imgWrapper = $('<div>'); //creates div for poster
+                    imgWrapper.addClass('img-wrapper');
 
                     var img = $('<img>');
                     img.addClass('img-responsive');
@@ -48,8 +50,10 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
-                    posterBox.append(img);
-
+                    img.attr('title', results[i].title + " ("+ year +")");
+                    
+                    imgWrapper.append(img);
+                    posterBox.append(imgWrapper);
                     movieBox.append(posterBox);
 
                     $('#moviesHere').append(movieBox);
@@ -69,10 +73,14 @@ $(document).ready(function() {
                         var year = yearFull.substring(0, 4); //extracts the year
                     }
                     var movieBox = $('<div>'); //creates div for poster + info
-                    movieBox.addClass('col-xs-6 col-lg-4 movieBox');
+                    movieBox.addClass('col-xs-6 col-sm-3 movieBox');
 
                     var posterBox = $('<div>'); //creates div for poster
-                    posterBox.addClass('col-xs-12 posterBox');
+                    posterBox.addClass('thumbnail');
+
+                    var imgWrapper = $('<div>'); //creates div for poster
+                    imgWrapper.addClass('img-wrapper');
+
 
                     var img = $('<img>');
                     img.addClass('img-responsive');
@@ -88,14 +96,15 @@ $(document).ready(function() {
                     img.attr('data-id', results[i].id);
                     img.attr('data-media', mediaType);
                     img.attr('data-ratings', str + "&y=" + year);
-                    var information = $('<h4>').html(results[i].name + " ("+ year +")");
-                    posterBox.append(img);
-
+                    img.attr('title', results[i].name + " ("+ year +")");
+                    
+                    imgWrapper.append(img);
+                    posterBox.append(imgWrapper);
                     movieBox.append(posterBox);
 
                     $('#moviesHere').append(movieBox);
                 }
-            };
+            }
         });
     });
 });
