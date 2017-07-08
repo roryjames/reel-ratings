@@ -48,6 +48,9 @@ $(document).ready(function() {
                     img.attr('data-name', str);
                     img.attr('data-id', results[i].id);
                     img.attr('data-ratings', str + "&y=" + year);
+
+                    img.attr('title', results[i].title + " ("+ year +")");
+
                     posterBox.append(img);
 
                     movieBox.append(posterBox);
@@ -88,14 +91,17 @@ $(document).ready(function() {
                     img.attr('data-id', results[i].id);
                     img.attr('data-media', mediaType);
                     img.attr('data-ratings', str + "&y=" + year);
+
+                    img.attr('title', results[i].name + " ("+ year +")");
                     var information = $('<h4>').html(results[i].name + " ("+ year +")");
+
                     posterBox.append(img);
 
                     movieBox.append(posterBox);
 
                     $('#moviesHere').append(movieBox);
                 }
-            };
+            }
         });
     });
 });
