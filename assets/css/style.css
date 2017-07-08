@@ -8,10 +8,10 @@ html{
   height: 100%;
 }
 
-body{	
- 	font-size:16px; 
- 	font-family:sans-serif;
- 	margin: 0px;
+body{ 
+  font-size:16px; 
+  font-family:sans-serif;
+  margin: 0px;
   height:100%;
  }
 h1{
@@ -28,7 +28,7 @@ h2{
 }
 
 h4{
- 	color:#222;
+  color:#222;
   margin:0px 0px 10px 0px;
  }
 
@@ -87,16 +87,26 @@ bottom: 0;
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
 }
-.posterBox{
-  height:500px;
+
+.thumbnail img{
+    max-width: 100%;
 }
-.posterBox h4{
-  position:absolute;
-  bottom:0;
-  margin-bottom:20px;
-  color:#222;
+
+.img-wrapper{
+  width: 100%;
+  padding-bottom: 150%;
+  position: relative;
 }
-.form-group{
+
+.img-wrapper img{
+  position: absolute;
+  top: 0; 
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  min-height: 100%;
+
+.form-group {
   width:100%;
 }
 
@@ -155,11 +165,4 @@ bottom: 0;
   width:50%;
 }
 
-}
-
-@media (max-width:768px){
-  .posterBox{
-  height:285px;
-  width:100%;
-}
 }
