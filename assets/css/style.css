@@ -154,13 +154,29 @@ bottom: 0;
     text-decoration: none;
     cursor: pointer;
 }
-
+.modal-footer{
+      border-top: 1px solid #a3a3a3;
+}
+hr{
+  border-top: 1px solid #a3a3a3;
+}
+.modal-header{
+      border-bottom: 1px solid #a3a3a3;
+}
+.btn-default {
+    color: #333;
+    background-color: #a3a3a3;
+    border-color: #bcbcbc;
+}
 @media (min-width:768px){
   .form-group #titleSearch{
   width:50%;
 }
 .img-wrapper img{
   height:400px;
+}
+.modal-content{
+      background-color: #ccc;
 }
 
 }
