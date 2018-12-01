@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var imdbRatings, rottenRatings, metaRatings, dataMedia;
 
-    $('body').on("click", "img", function() { //dom for image click
+    $('body').on("click", "img", function () {
         var dataMedia = $(this).attr("data-media");
 
         if (dataMedia === "movie" || dataMedia === undefined) {
@@ -11,12 +11,12 @@ $(document).ready(function() {
             $.ajax({
                 url: queryURL,
                 method: "GET",
-                error: function(xhr, ajaxOptions, thrownError) {
+                error: function (xhr, ajaxOptions, thrownError) {
                     if (xhr.status = 404) {
                         console.log(this + ' is throwing error ' + thrownError);
                     }
                 }
-            }).done(function(response) {
+            }).done(function (response) {
 
                 $("#modalMovieDiv").empty(); //clears div of any content
 
@@ -53,12 +53,12 @@ $(document).ready(function() {
             $.ajax({
                 url: queryURL,
                 method: "GET",
-                error: function(xhr, ajaxOptions, thrownError) {
+                error: function (xhr, ajaxOptions, thrownError) {
                     if (xhr.status = 404) {
                         console.log(this + ' is throwing error ' + thrownError);
                     }
                 }
-            }).done(function(response) {
+            }).done(function (response) {
 
                 $("#modalMovieDiv").empty(); //clears div of any content
 
@@ -89,7 +89,7 @@ $(document).ready(function() {
         $.ajax({ //ajax call to grab rating / information
             url: queryURLrating,
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             //clears existing divs
             $("#modalBodyDiv").empty();
             $("#modalBodyRatings").empty();
@@ -103,8 +103,8 @@ $(document).ready(function() {
 
             var imdbLogo = "<img src='./assets/media/imdb_200.png'>",
                 rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
-                metaLogo =   "<img src='./assets/media/Metacritic.png'>";
-                console.log(response.Ratings);
+                metaLogo = "<img src='./assets/media/Metacritic.png'>";
+            console.log(response.Ratings);
             if (response.Ratings === undefined) {
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
@@ -141,6 +141,6 @@ $(document).ready(function() {
             console.log(metaRatings);
             $('.reel-rating').empty();
             $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
-    });
+        });
     });
 });
