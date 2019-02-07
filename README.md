@@ -4,7 +4,7 @@ REEL RATINGS: an app for Movie Lovers
 The Rating You've Been Looking For
 
 URL
-Repo: https://rorytothemax.github.io/Reel-Ratings/
+Repo: https://roryjames.github.io/Reel-Ratings/
 Heroku:
 
 Overview
