@@ -1,7 +1,6 @@
 # Reel Ratings
 
-REEL RATINGS: an app for Movie Lovers
-The Rating You've Been Looking For
+REEL RATINGS: An Application for Movie Lovers
 
 URL
 Repo: https://roryjames.github.io/Reel-Ratings/
