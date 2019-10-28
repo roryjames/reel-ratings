@@ -5,10 +5,9 @@ The Rating You've Been Looking For
 
 URL
 Repo: https://roryjames.github.io/Reel-Ratings/
-Heroku:
 
 Overview
-Reel Ratings helps you decide which movie or television show to watch by giving you all of the information you'd want, at your fingertips. Enjoy watching the trailer, comparing rating from IMDB, Rotten Tomatoes, and Metscore all in one place.
+Reel Ratings gives you the rating for shows and movies that you've been looking for. Enjoy watching the trailer, comparing ratings from IMDB, Rotten Tomatoes, and Metascore all in one place.
 
 Screen Shots
 Homepage
