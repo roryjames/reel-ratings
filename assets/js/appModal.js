@@ -104,7 +104,6 @@ $(document).ready(function () {
             var imdbLogo = "<img src='./assets/media/imdb_200.png'>",
                 rottenLogo = "<img src='./assets/media/rottenTomatoes_200.png'>",
                 metaLogo = "<img src='./assets/media/Metacritic.png'>";
-            console.log(response.Ratings);
             if (response.Ratings === undefined) {
                 var noRatings = $('<h5 class="noRatings">').html("No ratings exist for this film.");
                 $("#modalBodyRatings").append(noRatings);
@@ -115,7 +114,6 @@ $(document).ready(function () {
                 const ratingValues = [];
 
                 response.Ratings.forEach(rating => {
-                    console.log(rating);
 
                     const expr = rating.Source;
                 switch(expr) {
@@ -169,7 +167,6 @@ $(document).ready(function () {
             } else createReelRating('Not Rated');       
 
             function createReelRating(ratingValues){
-                console.log(ratingValues);
 
                 let reelRatingAdd = Number;
                 let reelRating = Number;
