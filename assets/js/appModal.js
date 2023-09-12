@@ -84,7 +84,7 @@ $(document).ready(function () {
             });
         }
         var dataRatings = $(this).attr("data-ratings");
-        var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=40e9cece";
+        var queryURLrating = "https://www.omdbapi.com/?t=" + dataRatings + "&apikey=c1aea1a8";
 
         $.ajax({ //ajax call to grab rating / information
             url: queryURLrating,
@@ -110,37 +110,80 @@ $(document).ready(function () {
                 $("#modalBodyRatings").append(noRatings);
             };
 
-            if (response.Ratings[0].Value != undefined) {
-                //IMDB ratings
-                var imdbHundred = response.Ratings[0].Value;
-                var imdbNums = imdbHundred.split('/');
-                var imdbRatings = parseFloat(imdbNums[0]);
+            if (response.Ratings.length){
 
-                $("#modalBodyRatings").append("<li class='logo imdb'> " + imdbLogo + " " + imdbHundred + "</li>");
+                const ratingValues = [];
 
-            }
-            if (response.Ratings[1].Value != undefined) {
-                //Rotten Tomatoes Ratings
-                var rottenPercent = response.Ratings[1].Value;
-                var rottenRatings = (parseFloat(response.Ratings[1].Value) / 10);
-                $("#modalBodyRatings").append("<li class='logo rotten-tomatoes'> " + rottenLogo + " " + rottenPercent + "</li>");
+                response.Ratings.forEach(rating => {
 
-            }
-            if (response.Ratings[2].Value != undefined) {
-                //Metacritic Ratings
-                var metaHundred = (response.Ratings[2].Value);
-                var metaNums = metaHundred.split('/');
-                var metaRatings = parseFloat(metaNums[0] / 10);
-                $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
+                    const expr = rating.Source;
+                switch(expr) {
+                    case 'Rotten Tomatoes':
+                        rottenRating(rating);
+                        break;
+                    case 'Internet Movie Database':
+                        imdbRatings(rating);
+                        break;
+                    case 'Metacritic':
+                        metaRatings(rating);
+                        break;
+                }
 
-            }
+                createReelRating(ratingValues);
+                    
+                });
 
-            //Reel Ratings
-            var reelRatingAdd = (imdbRatings + rottenRatings + metaRatings);
-            var reelRating = Math.round(((reelRatingAdd / 3) * 10 / 10));
-            console.log(metaRatings);
-            $('.reel-rating').empty();
-            $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
+                function imdbRatings(rating){
+                    //IMDB ratings
+                    var imdbHundred = rating.Value;
+                    var imdbNums = imdbHundred.split('/');
+                    var imdbRatings = parseFloat(imdbNums[0]);
+
+                    ratingValues.push(imdbRatings);
+                    $("#modalBodyRatings").append("<li class='logo imdb'> " + imdbLogo + " " + imdbHundred + "</li>");
+    
+                }
+                function rottenRating(rating){
+                    //Rotten Tomatoes Ratings
+                    var rottenPercent = rating.Value;
+                    var rottenRatings = (parseInt(rottenPercent) / 10 );
+
+                    ratingValues.push(rottenRatings);
+
+                    $("#modalBodyRatings").append("<li class='logo rotten-tomatoes'> " + rottenLogo + " " + rottenPercent + "</li>");
+    
+                }
+                function metaRatings(rating) {
+                    //Metacritic Ratings
+                    var metaHundred = (rating.Value);
+                    var metaNums = metaHundred.split('/');
+                    var metaRatings = parseFloat(metaNums[0] / 10);
+
+                    ratingValues.push(metaRatings);
+
+                    $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
+    
+                }
+            }            
+
+            function createReelRating(ratingValues){
+                console.log(ratingValues);
+
+                let reelRatingAdd = Number;
+
+                //Reel Ratings
+                if (ratingValues.length > 1){
+                    reelRatingAdd = ratingValues.reduce();
+                } else reelRatingAdd = ratingValues[0];
+
+                var reelRating = Math.round(((reelRatingAdd / ratingValues.length) * 10 / 10));
+
+                
+                $('.reel-rating').empty();
+                $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
+                
+            };
+
         });
     });
 });
