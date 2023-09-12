@@ -115,6 +115,7 @@ $(document).ready(function () {
                 const ratingValues = [];
 
                 response.Ratings.forEach(rating => {
+                    console.log(rating);
 
                     const expr = rating.Source;
                 switch(expr) {
@@ -127,6 +128,7 @@ $(document).ready(function () {
                     case 'Metacritic':
                         metaRatings(rating);
                         break;
+
                 }
 
                 createReelRating(ratingValues);
@@ -164,26 +166,30 @@ $(document).ready(function () {
                     $("#modalBodyRatings").append("<li class='logo metacritic'> " + metaLogo + " " + metaHundred + "</li>");
     
                 }
-            }            
+            } else createReelRating('Not Rated');       
 
             function createReelRating(ratingValues){
                 console.log(ratingValues);
 
                 let reelRatingAdd = Number;
+                let reelRating = Number;
+
+                $('.reel-rating').empty();
 
                 //Reel Ratings
-                if (ratingValues.length > 1){
-                    reelRatingAdd = ratingValues.reduce();
-                } else reelRatingAdd = ratingValues[0];
+                if (ratingValues != 'Not Rated'){
+                    reelRatingAdd = ratingValues.reduce((sum, a) => sum + a, 0);
+                    reelRating = Math.round(((reelRatingAdd / ratingValues.length) * 10 / 10));
 
-                var reelRating = Math.round(((reelRatingAdd / ratingValues.length) * 10 / 10));
+                    $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>"); 
+
+                } else {
+                    $('.reel-rating').html(`${ratingValues}`);
+                }
 
                 
-                $('.reel-rating').empty();
-                $('.reel-rating').html("Reel Rating: " + reelRating + " / 10</h2>");
-                
+                               
             };
-
-        });
+        })
     });
 });
